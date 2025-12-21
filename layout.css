@@ -1,0 +1,330 @@
+/* ======================================================= */
+/* _layout.css: HEADER, NAVIGATION, AND FOOTER             */
+/* ======================================================= */
+
+/* --- 1. HEADER & NAVIGATION --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    backdrop-filter: blur(10px); /* Blurs content behind it for a premium feel */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    height: 90px; /* Increased slightly for more "breathing room" */
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: -1.5px; /* Tighter letter spacing for a custom logo look */
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    align-items: center;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600; /* Slightly bolder for authority */
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-list a:hover::after {
+    width: 20px; /* Small, elegant underline appears */
+}
+
+.cta-button {
+    background-color: var(--primary);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 50px; /* Rounded pill shape for high-end look */
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid var(--primary);
+    display: inline-block;
+}
+
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--primary) !important;
+    transform: scale(1.05);
+}
+
+/* --- MOBILE MENU ICON --- */
+.menu-toggle {
+    display: none; /* Hide on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+
+
+/* --- 2. FOOTER SECTION --- */
+
+
+.footer {
+    background-color: var(--primary); 
+    color: var(--white);
+    padding: 80px 0 40px;
+    text-align: center; /* Center everything for a balanced, minimalist look */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Accent line under footer headings */
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-green);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--accent-green);
+    padding-left: 5px; /* Subtle slide effect on hover */
+}
+
+
+.footer::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(92, 184, 92, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+
+/* --- 3. FOOTER UTILITY BAR --- */
+
+.footer-utility-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-icons a {
+    color: var(--white);
+    margin-left: 15px;
+    font-size: 1.2rem;
+    transition: var(--transition-fast);
+}
+
+.social-icons a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- PRE-FOOTER CTA MODULE --- */
+
+.footer-cta-module {
+    margin-bottom: 60px;
+}
+
+.footer-cta-module h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    /* Hero Gradient preserved but subtle */
+    background: linear-gradient(to right, #fff 40%, rgba(255,255,255,0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- SIGNATURE CORE (Logo & Contact) --- */
+.footer-signature-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.footer-signature-core .logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-signature-core .tagline {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Contact Links Group */
+
+.footer-contact-social-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+.footer-contact-social-group a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-social-group a:hover {
+    color: var(--accent-yellow);
+}
+
+
+.separator {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Trust Commitment Icons */
+.trust-commitment-simple {
+    display: flex;
+    gap: 30px;
+    opacity: 0.6;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.trust-item i {
+    color: var(--accent-green);
+}
+
+/* --- 3. FOOTER UTILITY BAR (The Legal Layer) --- */
+
+
+.footer-utility-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+}
+
+.footer-utility-bar .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-nav-links, .footer-legal-links {
+    margin-bottom: 15px;
+}
+
+.footer-utility-bar a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-utility-bar a:hover {
+    color: var(--white);
+}
+
+.footer-utility-bar p {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+}
+
+.footer-nav-links a, .footer-legal-links a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+    color: var(--white);
+}

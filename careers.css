@@ -1,0 +1,212 @@
+/* --- CAREERS GRID LAYOUT --- */
+.jobs-section {
+    padding: 80px 0 120px;
+    background: #fdfdfd;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* --- THE ELITE JOB CARD --- */
+.job-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    padding: 45px 40px;
+    border-radius: 30px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--accent-gold);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.job-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+    border-color: var(--accent-gold);
+}
+
+.job-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* --- ICON & HEADER --- */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.job-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8fafc;
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+}
+
+.job-card:hover .job-icon {
+    background: var(--accent-gold);
+    color: white;
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.job-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.job-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* --- PERKS LIST --- */
+.job-perks {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.job-perks li {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.job-perks li i {
+    color: var(--accent-gold);
+}
+
+/* --- THE CTA LINK --- */
+.job-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.3s ease;
+}
+
+.job-link:hover {
+    gap: 18px;
+    color: var(--accent-gold);
+}
+
+/* --- MOBILE RESPONSIVE AUTO-FORMATTING --- */
+@media (max-width: 768px) {
+    .careers-hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .jobs-grid {
+        grid-template-columns: 1fr; /* Force single column on mobile */
+        padding: 0 10px;
+    }
+
+    .job-card {
+        padding: 35px 30px;
+    }
+}
+
+/* --- THE ELITE STATUS BADGE --- */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.8); /* Glass effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle Gold border */
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    animation: floatBadge 3s ease-in-out infinite;
+}
+
+/* --- THE RADIATING PULSE DOT --- */
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Success Green */
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulse-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Floating effect for the whole badge */
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Radiating ring effect */
+@keyframes pulseRing {
+    0% {
+        width: 8px;
+        height: 8px;
+        opacity: 0.8;
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+    }
+}

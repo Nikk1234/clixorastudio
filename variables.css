@@ -1,0 +1,38 @@
+/* --- CSS Variables: The Design System "Source of Truth" --- */
+:root {
+    /* --- Brand Colors --- */
+    --primary: #0A3D62;        /* Sophisticated Corporate Blue */
+    --primary-light: #007bff;  /* Secondary blue for highlights */
+    --accent-gold: #FFC107;    /* For alerts or attention-grabbing items */
+    --accent-green: #29B48E;   /* Main Action/CTA Green */
+    --accent-green-dark: #1A8B70; /* Hover state for green */
+    
+    /* --- Neutral Palette --- */
+    --text-main: #212529;      /* For body text */
+    --text-muted: #555555;     /* For sub-headings or meta-data */
+    --bg-light: #FDFDFF;       /* Page background */
+    --bg-mid: #F1F3F5;         /* Section dividers or card backgrounds */
+    --white: #FFFFFF;
+
+    /* --- Feedback Colors --- */
+    --error: #D9534F;          /* Problem boxes / Error messages */
+    --success: #5CB85C;        /* Solution boxes / Success messages */
+
+    /* --- Typography --- */
+    /* Note: Ensure these are imported in your HTML <head> */
+    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Lora', serif;
+    
+    /* --- UI & Layout --- */
+    --radius-default: 10px;    /* Standard card/input radius */
+    --radius-pill: 999px;      /* Perfect circles/pill buttons */
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-main: all 0.3s ease-in-out;
+}

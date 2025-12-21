@@ -1,0 +1,147 @@
+/* --- Responsive Adjustments: Tablet (max-width: 992px) --- */
+@media (max-width: 992px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content, .hero-visual {
+        max-width: 100%;
+        width: 100%; 
+        text-align: center;
+    }
+
+    .hero h1 {
+        /* Overriding base clamp for specific hero mobile scaling */
+        font-size: 2.2rem; 
+    }
+
+    /* Header & Navigation Fixes */
+    .nav-list {
+        display: flex; 
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white); /* Updated to variable */
+        box-shadow: var(--shadow-md); /* Updated to variable */
+        z-index: 100;
+        padding: 20px 0;
+        
+        /* Animation Logic */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition-main); /* Updated to variable */
+    }
+
+    .nav-list.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    /* Process Flow Fix */
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px; 
+    }
+    
+    .process-grid::before {
+        display: none; 
+    }
+
+    .process-step:not(:last-child)::after {
+        content: '\f0d7'; 
+        font-family: "Font Awesome 5 Free"; 
+        font-weight: 900;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -20px;
+        top: auto;
+        position: absolute;
+        color: var(--primary); /* Added variable color */
+    }
+
+    /* Grid Layout Stacking */
+    .case-study-detail {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "metrics"
+            "visual"
+            "detail";
+    }
+
+    .story-grid, .pod-roles-grid, .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-image {
+        order: -1; 
+    }
+}
+
+/* --- Responsive Adjustments: Phone (max-width: 768px) --- */
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Vertical connector line */
+    .process-step:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        bottom: -30px; 
+        left: 50%; 
+        transform: translateX(-50%);
+        width: 2px;
+        height: 30px; 
+        background-color: var(--primary); /* Updated variable name */
+        z-index: 1;
+    }
+
+    .pricing-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .pricing-card {
+        width: 100%; 
+        max-width: 400px;
+        box-shadow: var(--shadow-sm); /* Ensure cards have light shadow on mobile */
+    }
+
+    .problem-solution-module {
+        flex-direction: column;
+    }
+
+    .mission-stats-mini {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+/* --- Responsive Adjustments: Small Phone (max-width: 600px) --- */
+@media (max-width: 600px) {
+    .pod-cta-banner, .service-cta-strip {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    /* Ensure primary buttons are full width on very small screens */
+    .primary-cta, .secondary-cta {
+        width: 100%;
+        margin-top: 15px;
+    }
+}

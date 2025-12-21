@@ -1,0 +1,575 @@
+/* ======================================================= */
+/* sections.css: RESTORED PROFESSIONAL UI & SPECIAL EFFECTS */
+/* ======================================================= */
+
+/* --- 1. HERO SECTION --- */
+.hero {
+    background-color: var(--primary); 
+    color: var(--white);
+    padding: 140px 0 100px; /* Slightly more top breathing room */
+    overflow: hidden; /* Ensures any hover effects don't cause scrollbars */
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px; /* Increased gap for better clarity */
+}
+
+.hero-content {
+    flex: 1.2; /* Content takes slightly more weight than visual */
+    max-width: 60%;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive sizing logic */
+    line-height: 1.05;
+    margin-bottom: 24px;
+    font-weight: 800;
+   background: linear-gradient(to right, #fff 20%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-visual {
+    flex: 0.8;
+    max-width: 40%;
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    height: 400px; 
+    display: flex;
+    align-items: center; /* Centers the pulse vertically */
+    justify-content: center; /* Centers the pulse horizontally */
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: float 6s ease-in-out infinite;
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Floating Detail: Adds a "Data Point" feel */
+
+.hero-visual::before {
+    content: '';
+    position: absolute;
+    /* Massive Core for High-End Presence */
+    width: 100px; 
+    height: 100px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    /* Layered Glow for Depth */
+    box-shadow: 
+        0 0 40px rgba(92, 184, 92, 0.8),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    /* Slower, more powerful tempo */
+    animation: pulse-max-impact 4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    z-index: 1; /* Pulse is behind everything */
+   
+}
+
+.hero-visual::after {
+    content: 'STRATEGY ACTIVE';
+    position: absolute;
+    top: 20px;   
+    right: -20px; 
+    
+    /* BACKGROUND: Force a solid, bright yellow */
+    background-color: #FFD700 !important; /* Gold/Yellow for maximum attention */
+    
+    /* TEXT: Force the deep primary blue for readability */
+    color: var(--primary) !important; 
+    
+    /* ELITE TYPOGRAPHY */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 900; /* Extra bold */
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Ensures text doesn't wrap */
+    
+    /* THE "LIFT": High-contrast shadow to separate from background */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    
+    /* STACKING: Ensure it is the top-most layer */
+    z-index: 50; 
+    opacity: 1 !important;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Floating movement for the whole box */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Growing Green Pulse Ripple */
+@keyframes pulse-max-impact {
+    0% {
+        transform: scale(0.8);
+        box-shadow: 0 0 0 0 rgba(92, 184, 92, 0.6);
+    }
+    50% {
+        transform: scale(1.1);
+        /* The ripple expands to 150px to fill the container */
+        box-shadow: 0 0 0 150px rgba(92, 184, 92, 0);
+    }
+    100% {
+        transform: scale(0.8);
+        box-shadow: 0 0 0 0 rgba(92, 184, 92, 0);
+    }
+}
+
+
+/* --- 2. SERVICES SECTION (Restored Angled Clip-Path) --- */
+.services {
+    padding: 100px 0;
+    background: radial-gradient(circle at top right, var(--bg-light), var(--white));
+    position: relative;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px; /* Precision 8-point grid spacing */
+    margin-top: 60px;
+}
+
+.service-item {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid var(--bg-mid);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-item:nth-child(1) {
+    border-top: 5px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(24, 144, 255, 0.1);
+}
+
+.service-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.service-item i {
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    color: var(--primary);
+    border-radius: 16px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    /* RESTORED: Specialist Icon Glow */
+    filter: drop-shadow(0 0 10px rgba(24, 144, 255, 0.2));
+}
+
+
+.service-item:hover i {
+    background: var(--primary);
+    color: var(--white);
+    transform: rotateY(360deg); /* Modern interaction detail */
+}
+
+.service-item h3 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+
+/* Role-Based Border Accents (Designer's Specific Colors) */
+.service-item.role-editor { border-left-color: #1890ff; }
+.service-item.role-designer { border-left-color: var(--accent-gold); }
+.service-item.role-seo { border-left-color: #52c41a; }
+
+/* --- 3. RESULTS SHOWCASE (Restored Horizontal UI) --- */
+
+.results-showcase {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); /* Subtle depth gradient */
+    padding: 120px 0;
+}
+.results-showcase .section-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* --- THE ANALYTICS CARD RESULT SECTION--- */
+.hero-stat-proof {
+    background: var(--white);
+    border: 1px solid var(--bg-mid);
+    padding: 50px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    /* Soft elevation shadow instead of dark glow */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); 
+}
+
+.giant-impact-number {
+    font-size: 6em;
+    font-weight: 900;
+    color: var(--accent-green); /* Green remains for growth */
+    line-height: 1;
+    /* Internal glow effect for light mode */
+    filter: drop-shadow(0 4px 10px rgba(92, 184, 92, 0.2));
+}
+
+.visual-proof-mini {
+    background: var(--bg-light);
+    border: 2px dashed var(--bg-mid);
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 50px;
+}
+
+.impact-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.pillar-item {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Ultra-fine border */
+    padding: 40px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.pillar-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    border-color: var(--primary);
+}
+
+.pillar-item i {
+    background: rgba(24, 144, 255, 0.08); /* Soft primary tint */
+    color: var(--primary);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 4px 8px rgba(24, 144, 255, 0.15)); /* Soft glow */
+}
+
+.pillar-item h3 {
+    font-family: 'Lora', serif; /* Using your brand's serif for authority */
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.pillar-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* --- CENTERING THE RESULTS CTA BUTTONS --- */
+.results-cta-footer {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center;     /* Aligns buttons vertically */
+    gap: 20px;               /* Professional spacing between the two buttons */
+    margin-top: 50px;        /* Pushes the buttons away from the pillars */
+    width: 100%;             /* Ensures it takes the full container width */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .results-cta-footer {
+        flex-direction: column; /* Stacks buttons on small screens */
+        gap: 15px;
+    }
+}
+
+
+/* --- 4. WORKFLOW / PROCESS (Restored Horizontal Flow & Arrows) --- */
+.how-it-works {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, var(--white), var(--bg-light));
+}
+
+.process-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 30px;
+    position: relative;
+    margin-top: 80px; /* Space for the floating step numbers */
+}
+
+/* RESTORED: Designer's Horizontal Flow Line */
+
+.process-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* Centered vertically against the cards */
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: repeating-linear-gradient(to right, var(--bg-mid) 0, var(--bg-mid) 10px, transparent 10px, transparent 20px);
+    z-index: 1;
+}
+
+
+.process-step {
+    position: relative;
+    background: var(--white);
+    padding: 40px 25px 30px;
+    border-radius: 16px;
+    border: 1px solid var(--bg-mid);
+    box-shadow: var(--shadow-sm);
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: var(--primary);
+}
+
+
+.step-number {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--accent-gold);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+    z-index: 3;
+}
+
+/* THE ROLE BADGE: Modern Pill Style */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+/* Role-Specific Glows */
+.creator-role { background: #e6f7ff; color: #1890ff; }
+.pod-role { background: #fffbe6; color: #faad14; }
+.review-role { background: #f6ffed; color: #52c41a; }
+.specialist-role { background: #f9f0ff; color: #722ed1; }
+
+
+/* TASK LIST: Clean Typography */
+.step-tasks {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    border-top: 1px solid var(--bg-light);
+    padding-top: 15px;
+}
+
+.step-tasks li {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.step-tasks i {
+    color: var(--accent-green);
+    margin-top: 3px;
+}
+
+/* RESTORED: Professional FontAwesome Arrows */
+
+.process-step:not(:last-child)::after {
+    content: '\f0da'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 38px;
+    right: -25px;
+    color: var(--primary);
+    font-size: 1.5em;
+    z-index: 3;
+}
+
+/* --- 5. PRICING (Restored High-Contrast Effects) --- */
+#pricing-teaser {
+    padding: 100px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#pricing-teaser .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pricing-teaser h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--primary);
+    margin-bottom: 80px !important; /* Forces the gap you are looking for */
+    max-width: 800px;
+    line-height: 1.2;
+}
+
+#pricing-teaser .pricing-grid {
+    display: grid; /* Switched from Flex to Grid for better stability */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 0; /* Removes any negative overlap from other pages */
+    width: 100%;
+}
+
+/* RESTORED: Best Value Tag */
+.best-value-tag {
+    display: inline-block;
+    background-color: var(--accent-gold); 
+    color: var(--primary); 
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.card-tier {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.engagement-desc {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 20px 0;
+    min-height: 80px; /* Keeps cards uniform */
+}
+
+.model-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.model-features li {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+}
+
+.model-features i {
+    color: #10b981;
+}
+
+/* RESTORED: The "Professional Designer" Featured Card Contrast */
+.featured-card {
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    transform: scale(1.03);
+    border: 3px solid var(--accent-gold) !important;
+}
+
+.featured-card h3, .featured-card p, .featured-card li {
+    color: var(--white) !important;
+}
+
+.featured-card .price-tag, .featured-card i {
+    color: var(--accent-gold) !important;
+}
+
+/* --- 6. ADD-ONS (Restored Side-by-Side) --- */
+.add-on-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.add-on-card {
+    background: var(--white);
+    border-top: 5px solid var(--primary);
+    border-radius: var(--radius-default);
+    padding: 30px 20px;
+    transition: var(--transition-main);
+}
+
+/* --- CTA BUTTON "GLOW & POP" EFFECTS --- */
+.cta-button {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--accent-green); /* Glowing hover effect */
+}

@@ -1,0 +1,116 @@
+/* --- CSS Reset & Global Defaults --- */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    color: var(--text-main); /* Updated variable name */
+    line-height: 1.6;
+    background-color: var(--bg-light); /* Updated variable name */
+    overflow-x: hidden; 
+}
+
+/* --- Layout Containers --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    color: var(--primary); /* Updated variable name */
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 3.8rem); 
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 40px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Base Button Logic (Shared Styles) --- */
+.cta-button, .primary-cta, .secondary-cta {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    transition: var(--transition-main); /* Uses new transition variable */
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-pill); /* Uses new pill variable */
+}
+
+/* Focus state for accessibility */
+.cta-button:focus, .primary-cta:focus, .secondary-cta:focus {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+/* Small / Standard CTA */
+.cta-button {
+    background-color: var(--accent-green);
+    color: var(--white); 
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+}
+
+/* Main Hero CTA */
+.primary-cta {
+    background-color: var(--accent-green);
+    color: var(--white);
+    padding: 18px 40px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button:hover, .primary-cta:hover {
+    background-color: var(--accent-green-dark);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Outlined CTA */
+.secondary-cta {
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: 2px solid var(--accent-green);
+    color: var(--accent-green);
+    background-color: transparent;
+}
+
+.secondary-cta:hover {
+    background-color: var(--accent-green);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
