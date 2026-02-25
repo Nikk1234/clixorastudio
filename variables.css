@@ -4,12 +4,14 @@
     --primary: #0A3D62;        /* Sophisticated Corporate Blue */
     --primary-light: #007bff;  /* Secondary blue for highlights */
     --accent-gold: #FFC107;    /* For alerts or attention-grabbing items */
+    --accent-yellow: #FFC107;  /* Alias for legacy references */
     --accent-green: #29B48E;   /* Main Action/CTA Green */
     --accent-green-dark: #1A8B70; /* Hover state for green */
     
     /* --- Neutral Palette --- */
     --text-main: #212529;      /* For body text */
     --text-muted: #555555;     /* For sub-headings or meta-data */
+    --text-light: #6b7280;     /* Lighter body/support text */
     --bg-light: #FDFDFF;       /* Page background */
     --bg-mid: #F1F3F5;         /* Section dividers or card backgrounds */
     --white: #FFFFFF;
@@ -20,7 +22,7 @@
 
     /* --- Typography --- */
     /* Note: Ensure these are imported in your HTML <head> */
-    --font-body: 'Roboto', sans-serif;
+    --font-body: 'Roboto', 'Noto Sans SC', sans-serif;
     --font-heading: 'Lora', serif;
     
     /* --- UI & Layout --- */

@@ -34,6 +34,22 @@
     align-items: center;
 }
 
+.logo-image {
+    display: block;
+    height: 56px;
+    width: auto;
+}
+
+.footer .logo-image {
+    height: 70px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .nav-list {
     list-style: none;
     padding: 0;
@@ -102,6 +118,32 @@
     cursor: pointer;
 }
 
+/* --- Language Switch --- */
+.lang-switch {
+    display: flex;
+    gap: 8px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.lang-btn {
+    border: 1px solid rgba(10, 61, 98, 0.2);
+    background: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.lang-btn[aria-pressed="true"] {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
 
 
 /* --- 2. FOOTER SECTION --- */
@@ -112,6 +154,7 @@
     color: var(--white);
     padding: 80px 0 40px;
     text-align: center; /* Center everything for a balanced, minimalist look */
+    position: relative;
 }
 
 .footer-grid {
@@ -199,6 +242,26 @@
 
 .footer-cta-module {
     margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer .cta-button {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--white) !important;
+}
+
+.footer .cta-button:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .footer-cta-module h3 {
@@ -220,6 +283,16 @@
     gap: 35px;
 }
 
+.footer-wordmark {
+    font-family: var(--font-heading);
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+}
+
 .footer-signature-core .logo {
     font-size: 2rem;
     font-weight: 900;
@@ -230,9 +303,9 @@
 }
 
 .footer-signature-core .tagline {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 3px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 30px;
 }
@@ -245,6 +318,7 @@
     gap: 30px;
     margin-bottom: 40px;
     font-size: 0.9rem;
+    flex-wrap: wrap;
 }
 
 .footer-contact-social-group a {
@@ -253,8 +327,20 @@
     transition: color 0.3s ease;
 }
 
+.footer-contact-social-group .wechat-id {
+    color: rgba(255, 255, 255, 0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-contact-social-group .wechat-id i {
+    color: var(--accent-gold);
+}
+
 .footer-contact-social-group a:hover {
-    color: var(--accent-yellow);
+    color: var(--accent-gold);
 }
 
 
@@ -267,6 +353,8 @@
     display: flex;
     gap: 30px;
     opacity: 0.6;
+    justify-content: center;
+    width: 100%;
 }
 
 .trust-item {

@@ -49,6 +49,97 @@ h2 {
     margin-bottom: 40px;
 }
 
+.section-subhead {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 850px;
+    margin: 0 auto 30px;
+}
+
+.subhead-secondary {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+/* --- Bilingual Support --- */
+.lang-en,
+.lang-zh {
+    display: inline;
+    font-family: var(--font-body);
+    line-height: 1.4;
+}
+
+.lang-en,
+.lang-zh {
+    color: inherit;
+}
+
+.lang-zh.small,
+.lang-en.small {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+.lang-block {
+    display: block;
+    margin-top: 6px;
+}
+
+html[data-lang="en"] .lang-zh {
+    display: none;
+}
+
+html[data-lang="zh"] .lang-en {
+    display: none;
+}
+
+html:not([data-lang]) .lang-zh {
+    display: none;
+}
+
+body[data-lang="en"] .lang-zh {
+    display: none;
+}
+
+body[data-lang="zh"] .lang-en {
+    display: none;
+}
+
+body:not([data-lang]) .lang-zh {
+    display: none;
+}
+
+/* --- Scroll Reveal (Balanced Motion) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;
